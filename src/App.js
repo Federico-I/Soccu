@@ -1,5 +1,75 @@
 import { useState } from "react";
 
+
+///////////////////////////////////////////////////////////////////////////////////////
+//                            Accordion Conmponent
+//////////////////////////////////////////////////////////////////////////////////////
+
+import "./styles.css";
+
+const faqs = [
+  {
+    title: "Where are these chairs assembled?",
+    text:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, quaerat temporibus quas dolore provident nisi ut aliquid ratione beatae sequi aspernatur veniam repellendus."
+  },
+  {
+    title: "How long do I have to return my chair?",
+    text:
+      "Pariatur recusandae dignissimos fuga voluptas unde optio nesciunt commodi beatae, explicabo natus."
+  },
+  {
+    title: "Do you ship to countries outside the EU?",
+    text:
+      "Excepturi velit laborum, perspiciatis nemo perferendis reiciendis aliquam possimus dolor sed! Dolore laborum ducimus veritatis facere molestias!"
+  }
+];
+
+export default function App() {
+  return (
+    <div>
+      <Accordion />
+    </div>
+  );
+}
+
+function Accordion() {
+  return <div>TODO</div>;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+//                    Children Props - Reusable Buttons
+//////////////////////////////////////////////////////////////////////////////////////
+
+/*
 const messages = ["Learn React", "Apply for Jobs", "Invest your New Income"];
 
 export default function App() {
@@ -35,7 +105,7 @@ function Steps() {
     // setNameTest({name: "Fred"});
   };
 
-  /* Two diffrent components will have different memory alocation even if the code logic is the same. Ex: if you render the smae component twice and make changes on one of them, the state of the one you changed won't affect the state of the other, even when the page is refreshed. */
+  // Two diffrent components will have different memory alocation even if the code logic is the same. Ex: if you render the smae component twice and make changes on one of them, the state of the one you changed won't affect the state of the other, even when the page is refreshed. 
 
   return (
     <>
@@ -78,3 +148,4 @@ function Button (textColor, backgroundColor, onClick, children) {
     <button style={{backgroundColor: {backgroundColor}, color: {textColor}}} onClick={onClick}>{children}</button>
   )
 }
+*/
