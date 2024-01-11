@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Children, useState } from "react";
 
 
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -35,27 +35,39 @@ export default function App() {
 
 
 function Accordion({ data }) {
+
+  const [currOpen, setCurrOpen] = useState(false);
+
   return ( 
     <div className="accordion">
-      {data.map((element, index) => <AccordionItem num={index} title={element.title} text={element.text} key={element.title}/>)}
+      {data.map((element, index) => ( 
+          <AccordionItem isOpen={currOpen} onOpen={setCurrOpen} num={index} title={element.title} key={element.title}>
+            {element.text}
+          </AccordionItem>
+        )
+      )}
+      <AccordionItem isOpen={currOpen} onOpen={setCurrOpen} num={25} title="Test" key="Test 1-1">
+        <p>This is a test</p>
+        <h1>Text part of the test.</h1>
+      </AccordionItem>
     </div>
   )
 }
 
-function AccordionItem({num, title, text}) {
+function AccordionItem({ isOpen, onOpen, num, title, children}) {
 
-  const [isOpen, setIsOpen] = useState(false);
+  const openedItem = num === isOpen; //true or false
 
   function handleToggle() {
-    setIsOpen( (isOpen) => !isOpen)
+   onOpen(isOpen ? "null" : num) // if currentitem is open set state to null otherwise set num.
   }
 
   return(
-    <div className={`item ${isOpen? "open" : ""}`} onClick={handleToggle}>
+    <div className={`item ${ openedItem ? "open" : ""}`} onClick={handleToggle}>
       <p className="number">{num < 9 ? `0${num + 1}`: num + 1 }</p>
       <p className="text">{title}</p>
-      <p className="icon">{isOpen ? "-" : "+"}</p>
-      {isOpen && <div className="content-box">{text}</div> }
+      <p className="icon">{openedItem ? "-" : "+"}</p>
+      {openedItem && <div className="content-box">{children}</div> }
     </div>
   )
 }
