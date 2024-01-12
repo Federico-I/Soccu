@@ -1,11 +1,11 @@
-import { Children, useState } from "react";
-
+import { useState } from "react";
+import "./styles.css";
 
 ///////////////////////////////////////////////////////////////////////////////////////
 //                            Accordion Conmponent
 //////////////////////////////////////////////////////////////////////////////////////
 
-import "./styles.css";
+// Wroking on the importance of the controlled componnets and state managemnt 
 
 const faqs = [
   {
